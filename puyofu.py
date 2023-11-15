@@ -152,6 +152,7 @@ def skip_10frame(cap):
         if not ret:
             return False, None
     frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame = check_image_size(frame)
     return True, frame
 
 
@@ -169,7 +170,7 @@ def display_images(image1, image2):
     plt.show()
 
 def main():
-    cap = cv2.VideoCapture('./game_captures/match_2.mov')
+    cap = cv2.VideoCapture('../game_captures/match_7.mov')
     state = "暗転"
 
     ret, frame = cap.read()
